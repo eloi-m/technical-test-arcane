@@ -1,14 +1,20 @@
 {%extends 'base.html' %}
 
-{% block head %}
-{% endblock %}
-
-
 {% block body %}
 <div class="content">
     <h1> Arcane Real Estate </h1>
+        <form name="selector" method="GET" action="/">
+            <select name = "city" >
+                {% for city in cities %}
+                    <option value= "{{city}}" SELECTED>{{ city }}</option>"
+                {% endfor %}
+            </select>
+            <input type="submit">
+        </form>
+    </select>
     {% if properties|length < 1%}
-        <div> No properties </div>
+        <div class="noproperties"> <h1>No properties</h1>
+                </div>
     {% else %}
             <table border="1">
                 <tr>
