@@ -1,0 +1,53 @@
+{%extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1> Arcane Real Estate </h1>
+    {% if properties|length < 1%}
+        <div> No properties </div>
+    {% else %}
+            <table border="1">
+                <tr>
+                    <th> Name </th>
+                    <th> Description  </th>
+                    <th> Number of rooms </th>
+                    <th> Landlord  </th>
+                    <th> City  </th>
+                    <th> Actions </th>
+                </tr>
+                {%for property in properties%}
+                    <tr>
+                        <td> {{property.name}}</td>
+                        <td> {{property.description}} </td>
+                        <td> {{property.rooms}} </td>
+                        <td> {{property.landlord}} </td>
+                        <td> {{property.city}} </td>
+                        <td>
+                            <a href="/delete/{{property.id}}"> Delete</a>
+                            <br/>
+                            <a href="/update/{{property.id}}"> Update</a>
+                        </td>
+                    </tr>
+        {% endfor  %}
+    </table>
+    {% endif  %}
+    <form  action ="/" method = "POST">
+        Name of property : <br/>
+        <input type = "text" name = "name" id="name"><br/>
+        Description of property :<br/>
+        <input type = "text" name = "description" id="description"><br/>
+        Number of rooms : <br/>
+        <input type = "number" name = "rooms" id="rooms"><br/>
+        Name of landlord :<br/>
+        <input type = "text" name = "landlord" id="landlord"><br/>
+        City :<br/>
+        <input type = "text" name = "city" id="city"><br/>
+        <input type = "submit" value="Add property"><br/>
+    </form>
+</div>
+{% endblock %}
+

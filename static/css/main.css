@@ -1,0 +1,51 @@
+body {
+    font-family:sans-serif;
+}
+
+table {
+  margin:auto;
+  table-layout: fixed;
+  width: 75%;
+  border-collapse: collapse;
+  border: 3px solid black;
+}
+
+form {
+  width:75%;
+  margin:auto;
+  horizontal-align:center;
+
+}
+
+input {
+  width: 50%;
+  margin:auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  width:75%;
+  text-align:center;
+  margin:auto
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th, td {
+  padding: 20px;
+}
+

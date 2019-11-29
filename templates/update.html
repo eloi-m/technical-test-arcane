@@ -1,0 +1,25 @@
+{%extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1> Update </h1>
+    <form  action ="/update/{{property.id}}" method = "POST">
+        Name of property : <br/>
+        <input type = "text" name = "name" id="name" value = {{property.name}}><br/>
+        Description of property :<br/>
+        <input type = "text" name = "description" id="description" value = {{property.description}}><br/>
+        Number of rooms : <br/>
+        <input type = "number" name = "rooms" id="rooms" value = {{property.rooms}}><br/>
+        Name of landlord :<br/>
+        <input type = "text" name = "landlord" id="landlord" value = {{property.landlord}}><br/>
+        City :<br/>
+        <input type = "text" name = "city" id="city" value = {{property.city}}><br/>
+        <input type = "submit" value="Update property" ><br/>
+    </form>
+</div>
+{% endblock %}
+
