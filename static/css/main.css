@@ -3,7 +3,10 @@ body {
 }
 
 table {
-  margin:auto;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:2%;
+  margin-bottom:2%;
   table-layout: fixed;
   width: 80%;
   border-collapse: collapse;
@@ -14,18 +17,39 @@ form {
   width:80%;
   margin:auto;
   horizontal-align:center;
-  margin-left: 35%;
-  margin-right:25%;
+}
+
+
+input {
+  width: 50%;
+  margin:auto;
+  box-sizing: border-box;
+}
+
+.submit {
+  width:20%;
+  margin:5%
 }
 
 .noproperties {
   margin:40px
 }
 
-input {
-  width: 50%;
-  margin:auto;
-  box-sizing: border-box;
+.selectorsubmit{
+  width:20%
+}
+
+.selector{
+  width:20%
+}
+
+select {
+  width:50%
+}
+
+
+div {
+  margin:2%
 }
 
 h1 {

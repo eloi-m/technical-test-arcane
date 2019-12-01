@@ -5,16 +5,21 @@
     <h1> Arcane Real Estate </h1>
         <form name="selector" method="GET" action="/">
             <select name = "city" >
+                <option value="" SELECTED>--Please select a city--</option>
                 {% for city in cities %}
-                    <option value= "{{city}}" SELECTED>{{ city }}</option>"
+                    <option value= "{{city}}" >{{ city }}</option>"
                 {% endfor %}
-            </select>
+            </select> <br/>
             <input type="submit">
         </form>
     </select>
-    {% if properties|length < 1%}
-        <div class="noproperties"> <h1>No properties</h1>
+    {% if properties|length<1 and cities|length<1 %}
+        <div class="noproperties"> <h1>There are no properties in the database, you can create one below</h1>
                 </div>
+    {% elif properties|length<1 and cities|length>0 %}
+        <div class="noproperties"> <h1> Please select a city </h1>
+                </div>
+
     {% else %}
             <table border="1">
                 <tr>
@@ -41,6 +46,7 @@
         {% endfor  %}
     </table>
     {% endif  %}
+
     <form  action ="/" method = "POST">
         Name of property : <br/>
         <input type = "text" name = "name" id="name"><br/>

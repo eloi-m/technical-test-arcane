@@ -22,7 +22,6 @@ class RealEstate(db.Model):
         return '<Property %r>' % self.id
 
 
-
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
@@ -54,10 +53,10 @@ def index():
         return render_template('index.html', properties=properties, cities=cities)
     else:
         cities = []
-        #city = 'Paris'
+        # city = 'Paris'
         for property in RealEstate.query.distinct(RealEstate.city):
             cities.append(property.city)
-        #properties = RealEstate.query.order_by(RealEstate.date_created).filter(RealEstate.city == city).all()
+        # properties = RealEstate.query.order_by(RealEstate.date_created).filter(RealEstate.city == city).all()
         return render_template("index.html", properties=[], cities=cities)
 
 
