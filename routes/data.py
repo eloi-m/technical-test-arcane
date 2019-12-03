@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 
 from . import routes
-from app import *
+from app import RealEstate, db
 
 @routes.route('/', methods=['POST', 'GET'])
 def index():

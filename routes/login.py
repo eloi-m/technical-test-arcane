@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired, Email, Length
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from . import routes
-from app import *
+from app import User, db
 
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=2, max=40)])
