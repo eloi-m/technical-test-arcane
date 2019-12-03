@@ -1,38 +1,41 @@
-{%extends 'base.html' %}
+{% extends "bootstrap/base.html" %}
 
 {% block body %}
 <div class="content">
+    <div class="container">
     <h1> Arcane Real Estate </h1>
-        <form name="selector" method="GET" action="/">
-            <select name = "city" >
+        <form action="/" class="form-signin" method="GET" name="selector">
+            <select name = "city" class="form-control" >
                 <option value="" SELECTED>--Please select a city--</option>
                 {% for city in cities %}
                     <option value= "{{city}}" >{{ city }}</option>"
                 {% endfor %}
             </select> <br/>
-            <input type="submit">
+        <button class="btn btn-lg btn-primary " type="submit">Select city</button>
         </form>
     </select>
+    </div>
     {% if properties|length<1 and cities|length<1 %}
-        <div class="noproperties"> <h1>There are no properties in the database, you can create one below</h1>
+        <div class="container"> <h1>There are no properties in the database, you can create one below</h1>
                 </div>
     {% elif properties|length<1 and cities|length>0 %}
-        <div class="noproperties"> <h1> Please select a city </h1>
+        <div class="container"> <h1> Please select a city </h1>
                 </div>
 
     {% else %}
-            <table border="1">
+    <div class="container">
+            <table class="table" >
                 <tr>
-                    <th> Name </th>
-                    <th> Description  </th>
-                    <th> Number of rooms </th>
-                    <th> Landlord  </th>
-                    <th> City  </th>
-                    <th> Actions </th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Description  </th>
+                    <th scope="col"> Number of rooms </th>
+                    <th scope="col"> Landlord  </th>
+                    <th scope="col"> City  </th>
+                    <th scope="col"> Actions </th>
                 </tr>
                 {%for property in properties%}
                     <tr>
-                        <td> {{property.name}}</td>
+                        <td scope="row"> {{property.name}}</td>
                         <td> {{property.description}} </td>
                         <td> {{property.rooms}} </td>
                         <td> {{property.landlord}} </td>
@@ -45,21 +48,19 @@
                     </tr>
         {% endfor  %}
     </table>
-    {% endif  %}
+    </div>
 
-    <form  action ="/" method = "POST">
-        Name of property : <br/>
-        <input type = "text" name = "name" id="name"><br/>
-        Description of property :<br/>
-        <input type = "text" name = "description" id="description"><br/>
-        Number of rooms : <br/>
-        <input type = "number" name = "rooms" id="rooms"><br/>
-        Name of landlord :<br/>
-        <input type = "text" name = "landlord" id="landlord"><br/>
-        City :<br/>
-        <input type = "text" name = "city" id="city"><br/>
-        <input type = "submit" value="Add property"><br/>
+    {% endif  %}
+    <div class="container">
+    <form action="/" class="form-signin" method="POST">
+        <input type = "text" class = "form-control" placeholder="Name of property" name="name" id="name"><br/>
+        <input type = "text" name="description" id="description" class = "form-control" placeholder="Description"><br/>
+        <input type = "number" name="rooms" id="rooms"class = "form-control" placeholder="Number of rooms"><br/>
+        <input type = "text" name="landlord"id="landlord" class = "form-control" placeholder="Landlord"><br/>
+        <input type = "text" name="city" id="city" class = "form-control" placeholder="City" ><br/>
+        <button class="btn btn-lg btn-primary " type="submit">Add property</button>
     </form>
+    </div>
 </div>
 {% endblock %}
 

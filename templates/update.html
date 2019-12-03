@@ -1,25 +1,25 @@
-{%extends 'base.html' %}
-
-{% block head %}
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Update
 {% endblock %}
 
-
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+{% endblock %}
 {% block body %}
-<div class="content">
-    <h1> Update </h1>
-    <form  action ="/update/{{property.id}}" method = "POST">
-        Name of property : <br/>
-        <input type = "text" name = "name" id="name" value = {{property.name}}><br/>
-        Description of property :<br/>
-        <input type = "text" name = "description" id="description" value = {{property.description}}><br/>
-        Number of rooms : <br/>
-        <input type = "number" name = "rooms" id="rooms" value = {{property.rooms}}><br/>
-        Name of landlord :<br/>
-        <input type = "text" name = "landlord" id="landlord" value = {{property.landlord}}><br/>
-        City :<br/>
-        <input type = "text" name = "city" id="city" value = {{property.city}}><br/>
-        <input type = "submit" value="Update property" ><br/>
+
+    <div class="container">
+        <h1 class="form-signin-heading"> Update </h1>
+    <form action ="/update/{{property.id}}" class="form-signin" method="POST">
+        <input type = "text" class = "form-control" placeholder="Name of property" name="name" id="name" value="{{property.name}}"><br/>
+        <input type = "text" name="description" id="description" class = "form-control" placeholder="Description" value="{{property.description}}"><br/>
+        <input type = "number" name="rooms" id="rooms"class = "form-control" placeholder="Number of rooms" value="{{property.rooms}}"><br/>
+        <input type = "text" name="landlord"id="landlord" class = "form-control" placeholder="Landlord" value="{{property.landlord}}"><br/>
+        <input type = "text" name="city" id="city" class = "form-control" placeholder="City" value="{{property.city}}"><br/>
+        <button class="btn btn-lg btn-primary " type="submit">Add property</button>
     </form>
-</div>
+    </div>
 {% endblock %}
 
