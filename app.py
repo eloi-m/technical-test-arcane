@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 
 from datetime import datetime
 
-from routes import *
+from routes import routes
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "justarandomsecretkeypassingby"
