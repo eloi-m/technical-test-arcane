@@ -4,9 +4,14 @@
 
 
 The Arcane Real Estate platform allows users to easily see different properties and their owners in cities.
-Owners can modify and delete them.
+Landlords can modify and delete their own properties.
 
-A technical test I made for Arcane in December 2019, using Python and Flask.
+
+To use, please create an account using the Signup menu. You can then login in the Login page, and add, modify and delete
+properties in the home page.
+
+
+I made this technical test for Arcane in December 2019, using Python and Flask.
 
 
 
