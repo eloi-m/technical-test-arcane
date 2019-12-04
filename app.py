@@ -8,7 +8,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from datetime import datetime
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "justarandomsecretkeypassingby"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/database.db'
@@ -57,6 +56,7 @@ class RegisterForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=2, max=40)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
 
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -75,7 +75,7 @@ def login():
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data, method = 'sha256')
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
@@ -88,7 +88,6 @@ def signup():
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
-
 
 
 from flask import Flask, render_template, url_for, request, redirect
@@ -162,7 +161,6 @@ def update(id):
             return "Error when updating"
     else:
         return render_template('update.html', property=property)
-
 
 
 if __name__ == '__main__':
